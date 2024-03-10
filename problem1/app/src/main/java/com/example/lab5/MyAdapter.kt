@@ -15,15 +15,15 @@ class MyAdapter(var blist: ArrayList<ButtonData>) : RecyclerView.Adapter<MyAdapt
         return MyViewHolder(view)
     }
 
-    @SuppressLint("ResourceType")
+//    @SuppressLint("ResourceType")
     override fun onBindViewHolder(holder: MyAdapter.MyViewHolder, position: Int) {
         holder.question.text = blist[position].question
-        holder.radioGroup.id = position
+//        holder.radioGroup.id = position
 
         for (i in blist[position].answers) {
             val radioButton = RadioButton(holder.itemView.context)
             radioButton.text = i
-            radioButton.id=123
+//            radioButton.id=123
             holder.radioGroup.addView(radioButton)
         }
     }

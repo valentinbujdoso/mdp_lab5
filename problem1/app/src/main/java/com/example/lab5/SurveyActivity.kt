@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.lab5.databinding.ActivitySurveyBinding
 
 private lateinit var binding: ActivitySurveyBinding
@@ -27,7 +29,7 @@ class SurveyActivity : AppCompatActivity() {
         if(type.equals("Food Preferences")) {
             binding.header.text = "Food Preferences"
             questions.add(ButtonData("What is your favorite cuisine?", arrayOf("Chinese", "French", "Italian", "Indian", "Japanese", "Thai", "Turkish")))
-            questions.add(ButtonData("How often do you eat out?", arrayOf("Yes", "No")))
+            questions.add(ButtonData("How often do you eat out?", arrayOf("Never", "Rarely", "Sometimes", "Frequently")))
             questions.add(ButtonData("Do you prefer spicy food?", arrayOf("Yes", "No")))
             questions.add(ButtonData("Do you prefer vegetarian food?", arrayOf("Yes", "No")))
             questions.add(ButtonData("Do you like seafood?", arrayOf("Yes", "No")))
@@ -47,17 +49,27 @@ class SurveyActivity : AppCompatActivity() {
 
     fun onSubmit(view: View){
         val result = ArrayList<String>()
-        val size = this.questions.size
-        for (i in 0..<size) {
-            val id = binding.recyclerview.findViewById<RadioGroup>(i).checkedRadioButtonId
-            if (id == -1) {
-                var tst = Toast.makeText(applicationContext,"You have to choose one answer for all of the questions!", Toast.LENGTH_LONG);
-                tst.show()
-                return
-            } else {
-                val radio = findViewById<RadioButton>(id)
-                result.add(questions.get(i).question + " " + radio.text)
-            }
+        val layout =findViewById<RecyclerView>(R.id.recyclerview)
+        val count = layout.childCount
+         for (i in 0..<count) {
+            val childView = layout.getChildAt(i)
+             if (childView is LinearLayout) {
+                 val childcount = childView.childCount
+                 for (j in 0..<childcount) {
+                     val childschildView = childView.getChildAt(j)
+                     if (childschildView is RadioGroup) {
+                         val id = childschildView.checkedRadioButtonId
+                         if (id == -1) {
+                             var tst = Toast.makeText(applicationContext,"You have to choose one answer for all of the questions!", Toast.LENGTH_LONG);
+                             tst.show()
+                             return
+                         } else {
+                             val radio = findViewById<RadioButton>(id)
+                             result.add(questions.get(i).question + " " + radio.text)
+                         }
+                     }
+                 }
+             }
         }
 
         val arrayAdapter: ArrayAdapter<*>

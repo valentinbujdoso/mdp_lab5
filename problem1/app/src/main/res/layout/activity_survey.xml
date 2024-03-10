@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".SurveyActivity">
+    tools:context=".SurveyActivity"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/header"
@@ -20,7 +21,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp" android:layout_weight="1"
         android:layout_below="@+id/header">
 
     </androidx.recyclerview.widget.RecyclerView>
@@ -37,8 +38,8 @@
     <ListView
         android:id="@+id/resultlist"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp" android:layout_weight="1"
         android:layout_below="@+id/submit">
     </ListView>
 
-</RelativeLayout>
+</LinearLayout>
