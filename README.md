@@ -1,1 +1,11 @@
 # mdp_lab5
+![](https://github.com/valentinbujdoso/mdp_lab5/blob/main/img/1.png)
+![](https://github.com/valentinbujdoso/mdp_lab5/blob/main/img/2.png)
+![](https://github.com/valentinbujdoso/mdp_lab5/blob/main/img/3.png)
+![](https://github.com/valentinbujdoso/mdp_lab5/blob/main/img/4.png)
+![](https://github.com/valentinbujdoso/mdp_lab5/blob/main/img/5.png)
+![](https://github.com/valentinbujdoso/mdp_lab5/blob/main/img/6.png)
+![](https://github.com/valentinbujdoso/mdp_lab5/blob/main/img/7.png)
+![](https://github.com/valentinbujdoso/mdp_lab5/blob/main/img/8.png)
+![](https://github.com/valentinbujdoso/mdp_lab5/blob/main/img/9.png)
+![](https://github.com/valentinbujdoso/mdp_lab5/blob/main/img/10.png)
